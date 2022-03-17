@@ -24,6 +24,7 @@ Install python libraries with pip
 ```{bash}
 pip install openpyxl psycopg2-binary
 pip install pandas SQLAlchemy
+pip install pybtex
 ```
 
 Start the jupyter lab interface:
