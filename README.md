@@ -25,6 +25,7 @@ Install python libraries with pip
 pip install openpyxl psycopg2-binary
 pip install pandas SQLAlchemy
 pip install pybtex
+#spip install postgis
 ```
 
 Start the jupyter lab interface:
