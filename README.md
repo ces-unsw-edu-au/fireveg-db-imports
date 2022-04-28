@@ -1,6 +1,6 @@
 # Fire Ecology Traits for Plants
 
-The ***Fire Ecology Traits for Plants*** project is being developed by  [Jose Ferrer-Paris](https://github.com/jrfep) and David Keith in the Centre for Ecosystem Science, University of New South Wales
+The ***Fire Ecology Traits for Plants*** project is being developed by  [José R. Ferrer-Paris](https://github.com/jrfep) and David Keith in the Centre for Ecosystem Science, University of New South Wales
 
 Please cite this work as:
 
@@ -39,8 +39,8 @@ Visualisation of the notebooks is possible in GitHub, or in the [Jupyter Noteboo
 
 #### Repository structure
 
-- Folder [python](/python/). Most code is written in [python](https://www.python.org/).
-   - [Field-forms](/python/Field-forms): code for reading field-work data from excel documents
-   - [Report-output](/python/Report-output): code for writing output `xlsx` documents with summaries of fire ecology traits for plants
+- Folder [python/](/python/). Most code is written in [python](https://www.python.org/).
+   - [Field-forms/](/python/Field-forms): code for reading field-work data from excel documents
+   - [Report-output/](/python/Report-output): code for writing output `xlsx` documents with summaries of fire ecology traits for plants
 
-- Folder [R](/R). Some scripts in [R](https://www.r-project.org/) are also available.
+- Folder [R/](/R). Some scripts in [R](https://www.r-project.org/) are also available.
