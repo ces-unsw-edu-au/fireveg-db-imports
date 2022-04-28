@@ -1,34 +1,46 @@
-# Jupyter Lab
+# Fire Ecology Traits for Plants
 
-Create a new environment with conda:
+The ***Fire Ecology Traits for Plants*** project is being developed by  [Jose Ferrer-Paris](https://github.com/jrfep) and David Keith in the Centre for Ecosystem Science, University of New South Wales
 
-```sh
-conda create --name jptr
-```
-Activate the environment and install R (with RPostgreSQL package) and jupyter lab:
+Please cite this work as:
 
-```{bash}
-conda activate jptr
-conda install -c conda-forge r-rpostgresql r-readxl devtools
-conda install -c conda-forge jupyterlab
-```
+> Ferrer-Paris, J. R. and Keith, D. A. (2022) Fire Ecology Traits for Plants: A database for fire research and management. Version 1.00. Centre for Ecosystem Science, University of New South Wales, Sydney, Australia.
 
-Activate the right R kernel...
-```{r}
-#R --vanilla
-IRkernel::installspec()
-```
 
-Install python libraries with pip
+This work has been supported by:
 
-```{bash}
-pip install openpyxl psycopg2-binary
-pip install pandas SQLAlchemy
-pip install pybtex
-#spip install postgis
-```
+- [University of New South Wales](https://www.unsw.edu.au/)
+- [NSW Bushfire Research Hub](https://www.bushfirehub.org/)
+- [NESP Threatened Species Recovery Hub](https://www.nespthreatenedspecies.edu.au/)
+- [NSW Department of Planning & Environment](https://www.planning.nsw.gov.au/)
 
-Start the jupyter lab interface:
-```sh
-jupyter-lab
-```
+## Components of the project
+
+### SQL structure of the database
+
+Code for defining the structure of the tables in a PostgreSQL database is available in the [fireveg-db](https://github.com/jrfep/fireveg-db) repository.
+
+
+### Database content
+
+Data not available yet.
+
+### WebApp
+
+Code for running a Flask webapp available in the [fireveg-webapp](https://github.com/jrfep/fireveg-webapp) repository.
+
+### Code for managing the database
+
+This repository contains several [Jupyter notebooks](https://jupyter.org/try) with code and instruction to perform several tasks in the database.
+
+Visualisation of the notebooks is possible in GitHub, or in the [Jupyter Notebook Viewer](https://nbviewer.org/).
+
+
+
+#### Repository structure
+
+- Folder [python](/python/). Most code is written in [python](https://www.python.org/).
+   - [Field-forms](/python/Field-forms): code for reading field-work data from excel documents
+   - [Report-output](/python/Report-output): code for writing output `xlsx` documents with summaries of fire ecology traits for plants
+
+- Folder [R](/R). Some scripts in [R](https://www.r-project.org/) are also available.
