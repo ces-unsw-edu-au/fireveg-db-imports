@@ -35,12 +35,14 @@ This repository contains several [Jupyter notebooks](https://jupyter.org/try) wi
 
 Visualisation of the notebooks is possible in GitHub, or in the [Jupyter Notebook Viewer](https://nbviewer.org/).
 
-
-
 #### Repository structure
 
 - Folder [python/](/python/). Most code is written in [python](https://www.python.org/).
    - [Field-forms/](/python/Field-forms): code for reading field-work data from excel documents
+   - [Import-austraits/](/python/mport-austraits)
+   - [Import-NSWFRD/](/python/Import-NSWFRD)
+   - [Input-forms/](/python/Input-forms)
+   - [Literature-review/](/python/Literature-review)
    - [Report-output/](/python/Report-output): code for writing output `xlsx` documents with summaries of fire ecology traits for plants
 
 - Folder [R/](/R). Some scripts in [R](https://www.r-project.org/) are also available.
