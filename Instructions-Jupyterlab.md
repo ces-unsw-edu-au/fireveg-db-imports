@@ -34,5 +34,7 @@ pip install pybtex
 
 Start the jupyter lab interface:
 ```sh
+cd ~/proyectos/fireveg/fire-veg-aust
+conda activate jptr
 jupyter-lab
 ```
