@@ -18,6 +18,14 @@ conda install -c conda-forge jupyterlab
 ```
 
 
+Start the jupyter lab interface:
+```sh
+cd ~/proyectos/fireveg/fire-veg-aust
+conda activate jptr
+jupyter-lab
+```
+
+
 ## using venv
 
 Alternatively using python3, venv and pip:
@@ -52,9 +60,3 @@ pip install pybtex
 #pip install postgis
 ```
 
-Start the jupyter lab interface:
-```sh
-cd ~/proyectos/fireveg/fire-veg-aust
-conda activate jptr
-jupyter-lab
-```
