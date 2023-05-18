@@ -42,9 +42,36 @@ conda install -c conda-forge r-rpostgresql r-readxl devtools
 conda install -c conda-forge jupyterlab
 ```
 
-## Activate the right R kernel...
 
-Within the environment
+
+Start the jupyter lab interface:
+```sh
+cd ~/proyectos/fireveg/fire-veg-aust
+conda activate jptr
+jupyter-lab
+```
+
+
+## using venv
+
+Alternatively using python3, venv and pip:
+
+```sh
+python3 -m venv ~/proyectos/venv/jupyterlab
+source ~/proyectos/venv/jupyterlab/bin/activate
+python --version
+pip install --upgrade pip
+pip install jupyterlab
+```
+
+```sh
+pip install openpyxl
+pip install psycopg2 pandas
+
+```
+## adding the R kernel
+
+Activate the right R kernel...
 
 ```{r}
 #R --vanilla
@@ -62,6 +89,7 @@ pip install pybtex
 #pip install postgis
 ```
 
+
 ## Start the jupyter lab interface:
 
 ```sh
@@ -72,3 +100,4 @@ cd ~/proyectos/fireveg/fire-veg-aust
 ## then:
 jupyter-lab
 ```
+
