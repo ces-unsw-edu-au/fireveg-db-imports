@@ -11,7 +11,6 @@ def batch_upsert(params,table,records,keycol,idx, execute=False,useconn=None):
     else:
         conn = useconn
     cur = conn.cursor()
-    #postgis.register(cur)
     updated_rows=0
 
     for record in records:
