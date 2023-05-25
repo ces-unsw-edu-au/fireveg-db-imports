@@ -1,12 +1,14 @@
-# Python folder
+# workflow folder
 
-All the script are saved as Jupyter Notebooks and include minimal documentation and comments on each step. Functions are declared to work within the notebook as part of a interactive workflow. 
+All the script are saved as Jupyter Notebooks and include minimal documentation and comments on each step. 
+
+I am in the process of moving shared functions to a module in folder `lib` to ensure consistency in the use of the functions, more generalised and customizable functions, and also streamline the documentation of steps in the notebooks.
 
 ## Subfolders
 
 ### `Field-forms`
 
-Scripts to import field data from spreadsheets. Spreadsheets or Workbooks in XLSX format provided by Prof. David Keith, but created by different observers. Scripts were adapted to import spreadsheets as given, with minimum editing of original files. 
+Scripts to import field data from spreadsheets. Spreadsheets or Workbooks in XLSX format provided by Prof. David Keith, [FAA](https://www.science.org.au/profile/david-keith), but created by different observers. Scripts were adapted to import spreadsheets as given, with minimum editing of original files. 
 
 ### `Import-...` scripts
 
