@@ -54,6 +54,12 @@ pip install openpyxl pandas
 pip install pyprojroot
 ```
 
+### connection to aws s3
+
+```sh
+pip install boto3
+```
+
 ### connect to postgresql
 
 To connect to postgresql database we need to have a client in the local computer. 
