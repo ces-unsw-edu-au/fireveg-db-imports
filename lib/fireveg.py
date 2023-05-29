@@ -38,9 +38,11 @@ def create_field_site_record(item,sw):
                 srid = 28355
             elif utm_zone == 54:
                 srid = 28354
+            else:
+                srid = False
 
    
-        if srid is not None and xlon is not None and ylat is not None:
+        if srid and xlon and ylat:
             record['geom'] = "ST_GeomFromText('POINT({xlon} {ylat})', {srid})".format(xlon=xlon,ylat=ylat,srid=srid)
 
         return(record)
@@ -126,36 +128,62 @@ def create_fire_history_record(item,col_dicts):
 def create_field_sample_record(item,sw):
     visit_id=item[sw['visit_id']].value
     if visit_id is not None and visit_id not in ('Site Number'):
-        if 'replicate_nr' in sw.keys():
-            replicatenr = item[sw['replicate_nr']].value
-        elif 'fixed_replicate_nr' in sw.keys():
-            replicatenr = sw['fixed_replicate_nr']
+        if 'split_visit_id' in sw.keys():
+            vid = visit_id.split("_")
+            if not vid[2]:
+                replicatenr = None
+            else:
+                replicatenr = int(vid[2])
+            samplenr = vid[1]
+            visit_id = vid[0]
         else:
-            replicatenr = None
-        if 'sample_nr' in sw.keys():
-            samplenr = item[sw['sample_nr']].value
-        else:
-            samplenr = None
+            if 'replicate_nr' in sw.keys():
+                replicatenr = item[sw['replicate_nr']].value
+            elif 'fixed_replicate_nr' in sw.keys():
+                replicatenr = sw['fixed_replicate_nr']
+            else:
+                replicatenr = None
+            if 'sample_nr' in sw.keys():
+                samplenr = item[sw['sample_nr']].value
+            else:
+                samplenr = None
         record={'visit_id': visit_id, 'replicate_nr': replicatenr, 'sample_nr': samplenr}
         if 'date' in sw.keys():
             visit_date = item[sw['date']].value 
             if isinstance(visit_date,datetime):
                 record['visit_date'] = visit_date.date()
-
-        
         return(record)
+
 
 def create_quadrat_sample_record(item,sw,lookup,valid_seedbank,valid_organ):
     species = item[sw['species']].value
     visit_id =  item[sw['visit_id']].value
+    comms=list()
     if 'sample_nr' in sw.keys():
         sample_nr=item[sw['sample_nr']].value
     else:
         sample_nr=1
+    if 'replicate_nr' in sw.keys():
+        replicate_nr = item[sw['replicate_nr']].value
+    elif 'fixed_replicate_nr' in sw.keys():
+        replicate_nr = sw['fixed_replicate_nr']
+    else :
+        replicate_nr = 1
+            
+    if 'split_visit_id' in sw.keys():
+        if visit_id is not None:
+            comms.append("visit_id originally recorded as %s" % visit_id)
+            vid = visit_id.split("_")
+            if not vid[2]:
+                replicate_nr = None
+            else:
+                replicate_nr = int(vid[2])
+            sample_nr = vid[1]
+            visit_id = vid[0]
+            
     if species is not None:
         record={'visit_id': visit_id, 'sample_nr': sample_nr,
                 'species': species}
-        comms=list()
         if 'workbook' in sw.keys():
             comms.append("Imported from workbook %s using python script" % sw['workbook'])
         if 'worksheet' in sw.keys():
@@ -165,11 +193,6 @@ def create_quadrat_sample_record(item,sw,lookup,valid_seedbank,valid_organ):
             visit_date = item[sw['date']].value
         else:
             visit_date = None
-            
-        if 'replicate_nr' in sw.keys():
-            replicate_nr = item[sw['replicate_nr']].value
-        elif 'fixed_replicate_nr' in sw.keys():
-            replicate_nr = sw['fixed_replicate_nr']
         
         if isinstance(visit_date,datetime):
             record['visit_date'] = visit_date.date()
@@ -185,6 +208,7 @@ def create_quadrat_sample_record(item,sw,lookup,valid_seedbank,valid_organ):
                     record['visit_date'] = visit_date
                     comms.append("matched by replicate nr %s, assuming date object" % replicate_nr)
             else:
+                record['replicate_nr'] = replicate_nr
                 comms.append("neither visit date nor replicate nr was matched ( replicate nr %s ), no date" % replicate_nr)
 
         if 'spcode' in sw.keys():
@@ -229,8 +253,6 @@ def create_quadrat_sample_record(item,sw,lookup,valid_seedbank,valid_organ):
             record["comments"]=comms
         
         return(record)
-
-
 
 
 
