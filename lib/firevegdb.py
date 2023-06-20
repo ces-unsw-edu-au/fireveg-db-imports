@@ -3,6 +3,20 @@ import psycopg2
 from psycopg2.extras import DictCursor
 from psycopg2.extensions import AsIs
 
+## shortcut for running simple database queries
+def dbquery(query,dbparams):
+    #print('Connecting to the PostgreSQL database...')
+    conn = psycopg2.connect(**dbparams)
+    cur = conn.cursor(cursor_factory=DictCursor)
+    cur.execute(query)
+    res = cur.fetchall()
+    cur.close()
+    if conn is not None:
+        conn.close()
+        #print('Database connection closed.')    
+    return res
+
+## Batch update or insert
 def batch_upsert(params,table,records,keycol,idx, execute=False,useconn=None):
     if useconn is None:
         # connect to the PostgreSQL server
