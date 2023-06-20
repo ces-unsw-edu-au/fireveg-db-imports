@@ -2,14 +2,16 @@
 
 These are the steps I followed to configure a Jupyter Lab environment.
 
-## create and activate python environment
+## Create and activate python environment
 
 ### with venv
+
+Use an specific version of python3...
 
 ```sh
 conda deactivate
 mkdir -p $HOME/venv
-python3 -m venv $HOME/venv/jptr
+/usr/local/bin/python3 -m venv $HOME/venv/jptr
 source $HOME/venv/jptr/bin/activate
 ```
 
@@ -44,60 +46,77 @@ conda install -c conda-forge jupyterlab
 
 
 
-Start the jupyter lab interface:
+## Install python libraries
+
+### common ones
 ```sh
-cd ~/proyectos/fireveg/fire-veg-aust
-conda activate jptr
-jupyter-lab
+pip install openpyxl pandas
+pip install pyprojroot
+```
+
+### connection to aws s3
+
+```sh
+pip install boto3
+```
+
+### connect to postgresql
+
+To connect to postgresql database we need to have a client in the local computer. 
+
+For postgresql connection on mac, use: https://postgresapp.com, download and then 
+```sh
+sudo mkdir -p /etc/paths.d &&
+echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
+```
+
+Restart the terminal, then:
+
+```sh
+source $HOME/venv/jptr/bin/activate
+pip install psycopg2
 ```
 
 
-## using venv
 
-Alternatively using python3, venv and pip:
-
-```sh
-python3 -m venv ~/proyectos/venv/jupyterlab
-source ~/proyectos/venv/jupyterlab/bin/activate
-python --version
-pip install --upgrade pip
-pip install jupyterlab
-```
-
-```sh
-pip install openpyxl
-pip install psycopg2 pandas
-
-```
-## adding the R kernel
+## Adding the R kernel
 
 Activate the right R kernel...
 
 ```{r}
 #R --vanilla
+install.packages('IRkernel')
 IRkernel::installspec()
 ```
 
-## Install additional libraries
 
-Install python libraries with pip
+## Start the jupyter lab interface with pythonpath
 
-```{bash}
-pip install openpyxl psycopg2-binary
-pip install pandas SQLAlchemy
-pip install pybtex
-#pip install postgis
-```
+If we want to have shared functions in different workbooks:
 
-
-## Start the jupyter lab interface:
 
 ```sh
-cd ~/proyectos/fireveg/fire-veg-aust
+cd $HOME/proyectos/fireveg/fire-veg-aust
 ## conda activate jptr
 ##or 
 ## source $HOME/venv/jptr/bin/activate
+##or 
+## source ~/proyectos/venv/jupyterlab/bin/activate
 ## then:
-jupyter-lab
+env PYTHONPATH=$HOME/proyectos/fireveg/fire-veg-aust jupyter-lab
 ```
 
+
+## Hidden directories
+
+To run the code in this repository we use two hidden directories to host database connection parameters and input data folders.
+
+These folders need to be created first:
+
+```{sh}
+cd $HOME/proyectos/fireveg/fire-veg-aust 
+mkdir -p secrets
+mkdir -p data
+```
+
+These folders are not tracked by git (check entries in .gitignore).
