@@ -120,3 +120,11 @@ mkdir -p data
 ```
 
 These folders are not tracked by git (check entries in .gitignore).
+
+## version control with Jupyter
+
+There are some problems associated with version control of jupyter notebooks when copies of the notebook are edited in different sessions.
+
+We will need to test some recommendations from:
+
+https://nextjournal.com/schmudde/how-to-version-control-jupyter
