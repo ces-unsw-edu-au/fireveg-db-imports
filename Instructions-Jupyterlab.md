@@ -128,3 +128,11 @@ There are some problems associated with version control of jupyter notebooks whe
 We will need to test some recommendations from:
 
 https://nextjournal.com/schmudde/how-to-version-control-jupyter
+
+## display iNaturalist observations
+
+```python
+pip install pyinaturalist
+pip install pillow
+pip install ipyplot
+```
