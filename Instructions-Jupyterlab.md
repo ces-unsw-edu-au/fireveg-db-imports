@@ -78,7 +78,6 @@ pip install psycopg2
 ```
 
 
-
 ## Adding the R kernel
 
 Activate the right R kernel...
@@ -120,6 +119,13 @@ mkdir -p data
 ```
 
 These folders are not tracked by git (check entries in .gitignore).
+
+
+Once we copied the credentials to the secrets folder, we can use this to connect to psql
+```sh
+eval $(grep -A4  aws-lght-sl secrets/database.ini | tail +2)
+psql -h $host -d $database -U $user
+```
 
 ## version control with Jupyter
 
