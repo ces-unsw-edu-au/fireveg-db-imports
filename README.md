@@ -18,16 +18,18 @@ This work has been supported by:
 
 ### SQL structure of the database
 
-Code for defining the structure of the tables in a PostgreSQL database is available in the [fireveg-db](https://github.com/jrfep/fireveg-db) repository.
+Code for defining the structure of the tables in a PostgreSQL database is available in the [fireveg-db](https://github.com/ces-unsw-edu-au/fireveg-db) repository.
 
 
 ### Database content
 
-Data not available yet.
+An export of the SQL structure and iniitial data is available in Figshare:
+
+> Ferrer-Paris, José R.; Keith, David A. (2023). Fire Ecology Traits for Plants: Database snapshot (SQL dump). figshare. Dataset. https://doi.org/10.6084/m9.figshare.23361002.v1
 
 ### WebApp
 
-Code for running a Flask webapp available in the [fireveg-webapp](https://github.com/jrfep/fireveg-webapp) repository.
+Code for running a Flask webapp available in the [fireveg-webapp](https://github.com/ces-unsw-edu-au/fireveg-webapp) repository.
 
 ### Code for managing the database
 
