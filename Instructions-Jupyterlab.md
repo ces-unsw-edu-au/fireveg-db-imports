@@ -96,12 +96,15 @@ If we want to have shared functions in different workbooks:
 
 ```sh
 cd $HOME/proyectos/fireveg/fire-veg-aust
-## conda activate jptr
-##or 
-## source $HOME/venv/jptr/bin/activate
-##or 
-## source ~/proyectos/venv/jupyterlab/bin/activate
-## then:
+if [ -e $HOME/venv/jptr ]
+then 
+    source $HOME/venv/jptr/bin/activate
+elif [ -e $HOME/proyectos/venv/ ]
+then 
+    source $HOME/proyectos/venv/jupyterlab/bin/activate
+else 
+    conda activate jptr
+fi 
 env PYTHONPATH=$HOME/proyectos/fireveg/fire-veg-aust jupyter-lab
 ```
 
