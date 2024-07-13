@@ -39,12 +39,12 @@ Visualisation of the notebooks is possible in GitHub, or in the [Jupyter Noteboo
 
 #### Repository structure
 
-- Folder [python/](/python/). Most code is written in [python](https://www.python.org/).
-   - [Field-forms/](/python/Field-forms): code for reading field-work data from excel documents
-   - [Import-austraits/](/python/mport-austraits)
-   - [Import-NSWFRD/](/python/Import-NSWFRD)
-   - [Input-forms/](/python/Input-forms)
-   - [Literature-review/](/python/Literature-review)
-   - [Report-output/](/python/Report-output): code for writing output `xlsx` documents with summaries of fire ecology traits for plants
-
-- Folder [R/](/R). Some scripts in [R](https://www.r-project.org/) are also available.
+- Folder [lib/](/lib/) include several functions written as [python](https://www.python.org/) modules.
+- Folder [workflow/](/workflow/) include jupyter notebooks organised in sub-folders describing data import/export steps for different sources of data.
+   - [Field-forms/](/workflow/Field-forms): code for reading field-work data from excel documents
+   - [Import-austraits/](/workflow/mport-austraits)
+   - [Import-NSWFRD/](/workflow/Import-NSWFRD)
+   - [Input-forms/](/workflow/Input-forms)
+   - [Literature-review/](/workflow/Literature-review)
+   - [Report-output/](/workflow/Report-output): code for writing output `xlsx` documents with summaries of fire ecology traits for plants
+   - Folder [R/](/workflow/R). Some scripts in [R](https://www.r-project.org/) are also available.
