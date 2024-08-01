@@ -30,28 +30,14 @@ This project consists of several linked components:
     - [Presentation slides](https://rpubs.com/jrfep/firevegdb-ESA2023)
     - Source code in [BitBucket repository](https://bitbucket.org/fireveg/fireveg-presentations)
 
-### SQL structure of the database
 
-Code for defining the structure of the tables in a PostgreSQL database is available in the [fireveg-db](https://github.com/ces-unsw-edu-au/fireveg-db) repository.
-
-
-### Database content
-
-An export of the SQL structure and iniitial data is available in Figshare:
-
-> Ferrer-Paris, José R.; Keith, David A. (2023). Fire Ecology Traits for Plants: Database snapshot (SQL dump). figshare. Dataset. https://doi.org/10.6084/m9.figshare.23361002.v1
-
-### WebApp
-
-Code for running a Flask webapp available in the [fireveg-webapp](https://github.com/ces-unsw-edu-au/fireveg-webapp) repository.
-
-### Code for managing the database
+## Code for managing the database
 
 This repository contains several [Jupyter notebooks](https://jupyter.org/try) with code and instruction to perform several tasks in the database.
 
 Visualisation of the notebooks is possible in GitHub, or in the [Jupyter Notebook Viewer](https://nbviewer.org/).
 
-#### Repository structure
+### Repository structure
 
 - Folder [lib/](/lib/) include several functions written as [python](https://www.python.org/) modules.
 - Folder [workflow/](/workflow/) include jupyter notebooks organised in sub-folders describing data import/export steps for different sources of data.
@@ -62,3 +48,5 @@ Visualisation of the notebooks is possible in GitHub, or in the [Jupyter Noteboo
    - [Literature-review/](/workflow/Literature-review)
    - [Report-output/](/workflow/Report-output): code for writing output `xlsx` documents with summaries of fire ecology traits for plants
    - Folder [R/](/workflow/R). Some scripts in [R](https://www.r-project.org/) are also available.
+
+
