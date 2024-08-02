@@ -50,6 +50,8 @@ vignettes/*.pdf
 
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
+.virtual_documents
+*/.virtual_documents/*
 
 # IPython
 profile_default/
