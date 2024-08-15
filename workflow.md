@@ -29,7 +29,4 @@ Code to create the template of input forms for fire ecology traits from the lite
 
 Miscellaneous code, check literature records (name is a bit misleading, will change soon)
 
-### `Report-output`
-
-Code for exporting data in spreadsheet format.
 
