@@ -1,6 +1,7 @@
 import openpyxl
 from datetime import datetime
 import re
+import copy
 
 # Create field site records
 def create_field_site_record(item,sw):
@@ -273,3 +274,162 @@ def import_records_from_workbook(filepath, workbook, worksheet, col_dictionary, 
             elif type(record)==dict:
                 records.append(record)
     return records
+
+def read_fire_intensity(filepath,workbook,worksheet,col_definitions):
+    wb = openpyxl.load_workbook(filepath / workbook,data_only=True)
+    ws = wb[worksheet]
+    triplet=('best','lower','upper')
+    records=list()
+    for row in range(2,ws.max_row+1):
+        visitid=ws.cell(row,col_definitions['visit_id']).value
+        if visitid is not None and visitid != 'Site':
+            visitdate=ws.cell(row,col_definitions['visit_date']).value
+            if isinstance(visitdate,datetime):
+                visitdate=visitdate.date()
+            elif visitdate is None:
+                visitdate='NULL'
+            else:
+                visitdate=datetime.strptime(visitdate, '%d/%m/%Y').date()
+            
+            record={'visit_id': visitid,
+                    'visit_date': visitdate,
+                   'comment':list()}
+            #print(record)
+            for var in ('scorch height',
+                        'tree foliage biomass consumed', 'shrub foliage biomass consumed', 'ground foliage biomass consumed',
+                        'tree foliage scorch', 'shrub foliage scorch', 'herb foliage scorch',
+                        'peat extent burnt','peat depth burnt'
+                       ):
+                if var in col_definitions.keys():
+                    record1=copy.deepcopy(record)
+                    record1['measured_var']=var
+                    if var == 'scorch height':
+                        record1['units']='m'
+                    elif var == 'peat depth burnt':
+                        record1['units']='cm'
+                    else:
+                        record1['units']='%'
+                    for k in range(len(col_definitions[var])):
+                        val=ws.cell(row,col_definitions[var][k]).value
+                        if val is not None and val != 'NA':
+                            if triplet[k]=='lower' and 'best' in record1.keys() and val > record1['best']:
+                                record1['lower']=record1['best']
+                                record1['comment'].append('lower bound given as %s but greater than best estimate' % val)
+                            if triplet[k]=='upper' and 'best' in record1.keys() and val < record1['best']:
+                                record1['comment'].append('upper bound given as %s but less than best estimate' % val)
+                                record1['upper']=record1['best']
+                            else:
+                                record1[triplet[k]]=val
+                    #print(record1)
+                    if 'comment' in record1.keys() and len(record1['comment'])==0:
+                        record1.pop('comment')
+                    records.append(record1)
+    return records
+
+# Add raw measurements for a single variable
+def read_twig_diameters(filepath,workbook,worksheet,col_definitions):
+    wb = openpyxl.load_workbook(filepath / workbook,data_only=True)
+    ws = wb[worksheet]
+    records=list()
+    for row in range(2,ws.max_row+1):
+        visitid=ws.cell(row,col_definitions['visit_id']).value
+        if visitid is not None and visitid != 'Site':
+            visitdate=ws.cell(row,col_definitions['visit_date']).value
+            if isinstance(visitdate,datetime):
+                visitdate=visitdate.date()
+            elif visitdate is None:
+                visitdate='NULL'
+            else:
+                visitdate=datetime.strptime(visitdate, '%d/%m/%Y').date()
+             
+            for var in ('twig diameter',):
+                if var in col_definitions.keys():
+                    record={'visit_id': visitid,
+                        'visit_date': visitdate,
+                        'measured_variable': var,
+                        'units':'mm'
+                       }
+                    for k in range(len(col_definitions[var])):
+                        record1=copy.deepcopy(record)
+                        val=ws.cell(row,col_definitions[var][k]).value
+                        if val is not None and val != 'NA':
+                            record1['single_value']=val
+                            records.append(record1)
+    return records
+
+# I defined this function to read vegetation information from each worksheet.
+def read_veg_classes(filepath,workbook,worksheet,col_definitions):
+    wb = openpyxl.load_workbook(filepath / workbook,data_only=True)
+    ws = wb[worksheet]
+    records=list()
+    for row in range(2,ws.max_row+1):
+        visitid=ws.cell(row,col_definitions['visit_id']).value
+        if visitid is not None and visitid != 'Site':
+            visitdate=ws.cell(row,col_definitions['visit_date']).value
+            if isinstance(visitdate,datetime):
+                visitdate=visitdate.date()
+            else:
+                visitdate=datetime.strptime(visitdate, '%d/%m/%Y').date()
+            vegclass=ws.cell(row,col_definitions['vegetation_class']).value
+            vegformation=ws.cell(row,col_definitions['vegetation_formation']).value
+            if vegclass=='Warm temperate rainforests':
+                vegclass='Southern Warm Temperate Rainforests'
+            if vegclass=='Littoral rainforest':
+                vegclass='Littoral rainforests'
+            if vegformation=='Rainforests':
+                vegclass=vegclass.title()
+            if vegformation in ('Blue Mountains Cool Wet Eucalypt Forest','Wet Sclerophyll Forests (Shrubby sub-formation)'):
+                vegformation='Wet sclerophyll forests (Shrubby subformation)'
+            if vegclass=='Southern Tableland Wet Sclerophyll Forests':
+                vegformation='Wet sclerophyll forests (Grassy subformation)'
+            if vegclass=='Montane wet sclerophyll forests':
+                vegformation='Wet sclerophyll forests (Grassy subformation)'
+                vegclass='Montane Wet Sclerophyll Forests'
+            if vegclass=='Alpine bogs and fens':
+                vegclass='Alpine Bogs and Fens'
+            
+            record={'visit_id': visitid,
+            'visit_date': visitdate,
+            'vegetation_formation':vegformation,
+                'vegetation_class':vegclass}
+            records.append(record)
+    return records
+
+def read_veg_structure(filepath,workbook,worksheet,col_definitions):
+    wb = openpyxl.load_workbook(filepath / workbook,data_only=True)
+    ws = wb[worksheet]
+    triplet=('best','lower','upper')
+    records=list()
+    for row in range(2,ws.max_row+1):
+        visitid=ws.cell(row,col_definitions['visit_id']).value
+        if visitid is not None and visitid != 'Site':
+            visitdate=ws.cell(row,col_definitions['visit_date']).value
+            if isinstance(visitdate,datetime):
+                visitdate=visitdate.date()
+            else:
+                visitdate=datetime.strptime(visitdate, '%d/%m/%Y').date()
+            record={'visit_id': visitid,
+            'visit_date': visitdate}
+            
+            stage=ws.cell(row,col_definitions['stage']).value
+            if stage is not None:
+                record['comment']=['Stage: %s' % stage,]
+            stratum=ws.cell(row,col_definitions['stratum']).value
+            for var in ('height','cover','scorch'):
+                if var in col_definitions.keys():
+                    record1=copy.deepcopy(record)
+                    record1['measured_var']='stratum %s %s' % (stratum,var)
+                    for k in range(len(col_definitions[var])):
+                        val=ws.cell(row,col_definitions[var][k]).value
+                        if val is not None and val != 'NA':
+                            if triplet[k]=='lower' and 'best' in record1.keys() and val > record1['best']:
+                                record1['lower']=record1['best']
+                                record1['comment'].append('lower bound given as %s but greater than best estimate' % val)
+                            if triplet[k]=='upper' and 'best' in record1.keys() and val < record1['best']:
+                                record1['comment'].append('upper bound given as %s but less than best estimate' % val)
+                                record1['upper']=record1['best']
+                            else:
+                                record1[triplet[k]]=val
+                    records.append(record1)
+    return records
+
