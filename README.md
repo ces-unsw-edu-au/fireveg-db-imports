@@ -15,7 +15,7 @@ This work has been supported by:
 
 ## Components of the project
 
-### SQL structure of the database
+### Import data into the database
 
 :dart: [This repository](https://github.com/ces-unsw-edu-au/fireveg-db-imports) contains several [Jupyter notebooks](https://jupyter.org/try) with code and instruction to perform several tasks in the database.
 
@@ -48,7 +48,8 @@ This project consists of several linked components:
     - :gear: Source code in [GitHub repository](https://github.com/ces-unsw-edu-au/fireveg-db-exports/)
     - :label: A Database snapshot (SQL dump) is available as a Figshare dataset with DOI:[10.6084/m9.figshare.23361002](https://doi.org/10.6084/m9.figshare.23361002)
     - :label: Database exports (summary tables, CSV/XLSX formats) available as Figshare dataset with DOI:[10.6084/m9.figshare.24125088](https://doi.org/10.6084/m9.figshare.24125088)
-  - :technologist: **Fire Ecology Traits for Plants: Status of the database** [osf.io/kjevh](https://osf.io/kjevh)
+  - :technologist: **Fire Ecology Traits for Plants: Data analysis and visualisation** [osf.io/kjevh](https://osf.io/kjevh)
+    - :gear: Source code in [GitHub repository](https://github.com/ces-unsw-edu-au/fireveg-analysis)
     - :gear: Source code in [BitBucket repository](https://bitbucket.org/fireveg/fireveg-presentations)
     - :speech_balloon: [Presentation slides](https://rpubs.com/jrfep/firevegdb-ESA2023) 
 
