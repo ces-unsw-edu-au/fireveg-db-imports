@@ -1,10 +1,10 @@
-# Fire Ecology Traits for Plants
+# Fire Ecology data pipeline and database (FEDB)
 
-The ***Fire Ecology Traits for Plants*** project is being developed by  [José R. Ferrer-Paris](https://github.com/jrfep) and David Keith in the Centre for Ecosystem Science, University of New South Wales
+The ***Fire Ecology data pipeline and database*** is being developed by  [José R. Ferrer-Paris](https://github.com/jrfep) and David Keith in the Centre for Ecosystem Science, University of New South Wales
 
 Please cite this work as:
 
-> Ferrer-Paris, J. R. and Keith, D. A. (2024) Fire Ecology Traits for Plants: A database for fire research and management. Version 1.10. Centre for Ecosystem Science, University of New South Wales, Sydney, Australia. Retrieved from <https://osf.io/hu96w>
+> Ferrer-Paris, J. R. and Keith, D. A. (2025) Fire Ecology data pipeline and database to inform fire ecology research and management. Version 1.20. Centre for Ecosystem Science, University of New South Wales, Sydney, Australia. Retrieved from <https://osf.io/hu96w>
 
 This work has been supported by:
 
@@ -15,7 +15,7 @@ This work has been supported by:
 
 ## Components of the project
 
-### SQL structure of the database
+### Import data into the database
 
 :dart: [This repository](https://github.com/ces-unsw-edu-au/fireveg-db-imports) contains several [Jupyter notebooks](https://jupyter.org/try) with code and instruction to populate and manage the database.
 

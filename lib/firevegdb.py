@@ -73,7 +73,7 @@ def batch_upsert(params,table,records,keycol,idx, execute=False, useconn=None):
         print('Database connection closed.')
 
 ### This function filters a list of `records` to find unique records and then validate them against the information in table `field_visit` (visit_id, visit_date and replicate_nr). Any valid but missing records are inserted in table `field_visit` and the samples are inserted in table `field_sample`.
-def validate_and_update_site_records(records, useconn=None):
+def validate_and_update_site_records(records,params, useconn=None):
     if useconn is None:
         # connect to the PostgreSQL server
         print('Connecting to the PostgreSQL database...')

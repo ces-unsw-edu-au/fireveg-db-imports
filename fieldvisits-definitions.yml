@@ -1,0 +1,213 @@
+observerID:
+  label:  Observer identification table
+  description: Table with one record for each person (observer) responsible of capturing information 
+   related to field visits, responsible for identification of plant species and estimation of all
+   measurements. 
+  attributes:
+   UserKey: Unique ID for an observer, primary key
+   GivenNames: Given names of observer
+   Surname: Surname of observer
+field_site:
+ label: Field site table
+ description: Table with one record for each site visited during a survey.
+ attributes:
+  site_label: Unique ID for a field site, primary key.
+  location_description: Text description of the location of the site.
+  geom: Geospatial data associated with the site, in a simple feature geometry format, can be a point or polygon, coordinates derived from GPS readings.
+  gps_uncertainty_m: Uncertainty of GPS readings, in meters.
+  gps_geom_description: Text description of the features represented by the geometry, for example centroid of location, boundaries of location, transects or other features.
+  elevation: Elevation in meters, usually from GPS readings or barometer readings.
+surveys:
+ label: Surveys table
+ description: Table with one record for each survey. A single survey is consistent for methods, often has a limited set of observers and is usually defined in terms of a spatial limit.
+ attributes: 
+  survey_name: Unique identifier of an individual survey, primary reference for queries regarding survey data.
+  survey_description: "Text description of the survey with details of methods, objectives, observers and time period and/or spatial boundaries"
+  observers: "Comma separated list of observers"
+field_visit:
+ label: Field visits table
+ description: Table with one record for each field visit. Each field site can be visited multiple times, each field visit belongs to a survey. A field site can be visited during different surveys. 
+ attributes:
+  visit_id: Unique identifier of an individual field visit, primary reference for queries regarding field visits within a survey
+  visit_date: Date of the survey
+  replicate_nr: Sequential number of the visits to the same site, one for the first visit, two for the second, etc. 
+  visit_description: Text description of the visit, should give context of the survey, site and visit. 
+  mainObserver:  ID for the main observer, references the Observer identification table
+  observerlist: Comma separated list or array of additional observers
+  survey_name: Survey name, references the Surveys table
+fire_history:
+ label: Fire history table
+ description: Table with one record for each recorded fire events. Each fire event is recorded per field site. One field site can have multiple fire events. Large fires affecting multiple sites are recorded here multiple times, once for each field site, but can be grouped by fire name if needed. 
+ attributes:
+  site_label: ID for a field site, references the Field site table
+  fire_name: Name given to the fire, specially for large fire events affecting multiple sites
+  fire_date: Approximate description of the date of the fire in a text format, can be a year, a range of dates or a full date string.
+  earliest_date: Earliest possible date inferred from fire_date, in a formatted date string. 
+  latest_date: Latest possible date inferred from fire_date, in a formatted date string.
+  how_inferred: How fire date was inferred or approximated, either from existing records or from evidence in situ.
+  cause_of_ignition: "Probable or known case of ignition, for example: lightning, arson, prescribed fire"
+  notes: Additional notes related to the fire event.
+field_samples:
+ label: Field samples table
+ description: Table with one record for each field sample of the plant species in the site during a field visit. During each field visit there can zero (visit consisted only of field measurements but no counts of species), one or more samples. Each sample use a basic sampling methods based on area or transect counts.  
+ attributes:
+  visit_id: Identifier of an individual field visit, references Field visits table
+  visit_date: Date of field visit, references Field visits table
+  sample_nr: Sequential number of the sample within a visit, together with visit_id and visit_date it forms a primary key for the table 
+  sample_method:
+    description: Sampling method for measurements related to counts of individuals of plant species
+    allowed values: 
+     quadrat: Rectangular sampling area
+     transect: Linear sampling transect
+     other: Other type of sampling method
+  quadrat_area: area of the quadrat in squared meters
+  transect_length: lenght of the transect in meters
+  comments: Text comments regarding sampling methods
+quadrat_samples:
+ label: Species count table
+ description: Table with one record for each species count from a field sample of the plant species in the site. During each field visit there can one or more counts of one or more species. Counts are grouped by species, or by species and life stage. The sampling unit can be a quadrat or a transect, as described in the Field samples table.
+ attributes:
+  record_id: sequential number of the record
+  visit_id: Identifier of an individual field visit, references Field visits table
+  visit_date: Date of field visit, references Field visits table
+  sample_nr: Number of the sample within a visit, references Field sample table
+  species: Species name as given by the observer
+  species_code: Species code linking to taxonomical tables. This is usually a unique identifier for a valid taxonomical classification. For the Flora of New South Wales, Australia, this is the BioNet Atlas.
+  species_notes: Notes regarding species identification, can include information about confidence of identification
+  resprout_organ:
+    description: Regenerative Organ, see fire-related plant trait description for surv4.
+    allowed_values_levels:
+      Epicormic: Resprouting from epicormic meristematic tissues or buds beneath bark
+        on woody aerial stems
+      Apical: Resprouting from active shoots protected by crowded leaf bases on woody
+        stems
+      Lignotuber: Resprouting from meristematic tissues or buds on lignotubers (swollen
+        woody organ) at or just below the soil surface
+      Basal: Resprouting from meristematic tissues or buds at the base of woody stems
+        at or just below the soil surface
+      Tuber: Resprouting from non-woody nodular subsoil organs (bulbs, corms, tubers,
+        taproots) with active shoots or dormant buds
+      Tussock: Shoots protected and resprouting within tightly clustered tillers and
+        resprouting  without significant lateral spread
+      Long rhizome or root sucker: Resprouting from buried woody or non-woody horizontal
+        organs capable of lateral spread, typically >0.5m. Includes root suckers.
+      Short rhizome: Resprouting from buried woody or non-woody horizontal organs, but
+        not capable of significant lateral spread, typically <0.5m.
+      Stolon: Resprouting from non-woody horizontal organs on or just below the soil
+        surface
+      None: No vegetative recovery - killed by fire
+  seedbank:
+    description: Seedbank Type
+    allowed_values_levels:
+      Canopy: Seeds withheld for >1yr within woody fruits in the plant canopy that release
+        seeds when scorched
+      Soil-persistent: Seeds released at maturity with a fraction (min 10%) remaining
+        viable in the soil for >1yr
+      Transient: Seeds released from woody or fleshy fruits at maturity with a negligible
+        fraction (max 1%) remaining viable in the soil for >1yr
+      Non-canopy: Seedbanks uncertain but not canopy type (either Soil-persistent or
+        Transient seedbank type)
+  adults_unburnt: Number of living individuals presumed to have been present during the latest fire but without any sign of scorch
+  resprouts_live: Number of living individuals presumed to have been burnt during the latestfire and showing signs of regeneration
+  resprouts_died: Number of dead individuals presumed to have been burnt during the latest fire, showing signs of regeneration and presumed to have died since the fire event
+  resprouts_kill: Number of dead individuals showing signs of regeneration and presumed to have been killed during the latest fire event
+  resprouts_reproductive: Number of living individuals presumed to have been burnt during the latestfire and showing signs of regeneration and reproductive organs
+  recruits_live: Number of living individuals presumed to have germinated after the latest fire event  
+  recruits_reproductive: Number of living individuals presumed to have germinated after the latest fire event and showing reproductive organs
+  recruits_died: Number of dead individuals presumed to have germinated and died after the latest fire event
+  scorch:
+   description: Observed level of scorch
+   allowed_values_levels:
+     Full canopy scorch: Scorch reaching to the canopy
+     Partial scorch: Scorch not reaching to the canopy
+     Other: Other type of scorch
+  life_stage:
+   description: age group
+   allowed_values_levels:
+    adult: Individual has reached reproductive age
+    juvenile: Individual has not reached reproductive age
+    other: Indeterminate, unknown or not relevant
+  comments: Text comments for the records
+field_visit_veg_description:
+ label: Vegetation description table
+ description: Table with one record for the vegetation description associated with a field visit. 
+ attributes:
+  visit_id: Identifier of an individual field visit, references Field visits table
+  visit_date: Date of field visit, references Field visits table
+  vegetation_description: Text description of the vegetation including any details and comments from the observer.
+  vegetation_formation: 'Vegetation formations or equivalent for the local vegetation. For New South Wales, Australia these are defined by: Keith, D. A. and Simpson, C. C. (2010) Vegetation Formations of NSW (version 3.0): A seamless map for modelling fire spread and behaviour. Report to the Rural Fire Service. NSW Department of Environment and Climate Change'
+  vegetation_class: 'Vegetation classes nested within Vegetation formation, or equivalent units for the local vegetation. For New South Wales, Australia these are defined by: Keith, D. A. and Simpson, C. C. (2010) Vegetation Formations of NSW (version 3.0): A seamless map for modelling fire spread and behaviour. Report to the Rural Fire Service. NSW Department of Environment and Climate Change'
+field_visit_vegetation_estimates:
+ label: Vegetation estimates table
+ description: Table with one record for each vegetation variable measured or estimated during a field visit. These are assumed to represent a characteristic value range for the entire field site during the field visit. For each field visit there can be zero (site visited and species counted, but no vegetation information recorded), one or more records of vegetation variables. There can only be one record of each vegetation variable for each visit, but there can be multiple vegetation variables per visit.
+ attributes:
+  visit_id: Identifier of an individual field visit, references Field visits table
+  visit_date: Date of field visit, references Field visits table
+  measured_var:
+   description: Vegetation variable measured or estimated
+   allowed_values_levels:
+    tree canopy height: estimate of the height of the canopy including emergents 
+    mid canopy height: estimate of the height of the canopy excluding emergents 
+    shrub height: estimate of the height of the shrub layer
+    tree canopy scorch: estimate of the height of evidence of scorch in the canopy
+    mid canopy scorch: estimate of the height of evidence of scorch the canopy excluding emergents 
+    shrub scorch: estimate of the height of evidence of scorch of the shrub layer
+    tree canopy cover: estimate of the percentage cover of the canopy including emergents
+    mid canopy cover: estimate of the percentage cover of the canopy excluding emergents
+    shrub cover: estimate of the percentage cover of the shrub layer
+    ground cover: estimate of the percentage ground cover 
+    ground burnt: estimate of the percentage of ground cover burnt during the latest fire
+    tree foliage biomass consumed: estimate of the percentage of tree foliage biomass consumed during the latest fire
+    shrub foliage biomass consumed: estimate of the percentage of shrub foliage biomass consumed during the latest fire
+    ground foliage biomass consumed: estimate of the percentage of ground cover foliage biomass consumed during the latest fire
+    largest twigs consumed: estimate fo the diameter of the largest twigs consumed during the latest fire
+    scorch height: estimate of the height of evidence of scorch for any layer of vegetation
+    twig diameter: estimate or measurement of the diameter of twigs consumed during the latest fire
+    peat depth burnt: estimate of the depth of peat burnt during the lastest fire
+    peat extent burnt: estimate of the extent of peat burnt during the lastest fire
+  units: 
+    description: Units for the vegetation variable
+    allowed_values_levels:
+      mm: millimeters
+      cm: centimeters
+      m: meters
+      "%": percentage
+  best: Best estimate of value. Part of a triplet of values (upper and lower bounds encompassing a best estimate) to describe a fuzzy number that describes the uncertainty in the measurement or estimation. 
+  lower: Lower bound. Part of a triplet of values (upper and lower bounds encompassing a best estimate) to describe a fuzzy number that describes the uncertainty in the measurement or estimation. Must be lower or equal to best estimate.
+  upper: Upper bound. Part of a triplet of values (upper and lower bounds encompassing a best estimate) to describe a fuzzy number that describes the uncertainty in the measurement or estimation. Must be higher or equal to best estimate.
+field_visit_vegetation_raw_values:
+ label: Vegetation measurements table
+ description: Table with one record for raw measurements of vegetation variables, performed during a field visit. These are assumed to represent a unique measurement for a single unit of measurement (one individual or quadrat, etc). For each field visit there can be zero (site visited and species counted, but no vegetation measurement recorded), one or more records of vegetation variables. There can be multiple records of each vegetation variable for each visit.
+ attributes:
+  visit_id: Identifier of an individual field visit, references Field visits table
+  visit_date: Date of field visit, references Field visits table
+  measured_var:
+   description: Vegetation variable measured or estimated
+   allowed_values_levels:
+    tree canopy height: estimate of the height of the canopy including emergents 
+    mid canopy height: estimate of the height of the canopy excluding emergents 
+    shrub height: estimate of the height of the shrub layer
+    tree canopy scorch: estimate of the height of evidence of scorch in the canopy
+    mid canopy scorch: estimate of the height of evidence of scorch the canopy excluding emergents 
+    shrub scorch: estimate of the height of evidence of scorch of the shrub layer
+    tree canopy cover: estimate of the percentage cover of the canopy including emergents
+    mid canopy cover: estimate of the percentage cover of the canopy excluding emergents
+    shrub cover: estimate of the percentage cover of the shrub layer
+    ground cover: estimate of the percentage ground cover 
+    ground burnt: estimate of the percentage of ground cover burnt during the latest fire
+    tree foliage biomass consumed: estimate of the percentage of tree foliage biomass consumed during the latest fire
+    shrub foliage biomass consumed: estimate of the percentage of shrub foliage biomass consumed during the latest fire
+    ground foliage biomass consumed: estimate of the percentage of ground cover foliage biomass consumed during the latest fire
+    largest twigs consumed: estimate fo the diameter of the largest twigs consumed during the latest fire
+    scorch height: estimate of the height of evidence of scorch for any layer of vegetation
+    twig diameter: estimate or measurement of the diameter of twigs consumed during the latest fire
+    peat depth burnt: estimate of the depth of peat burnt during the lastest fire
+    peat extent burnt: estimate of the extent of peat burnt during the lastest fire
+  units: 
+    description: Units for the vegetation variable
+    allowed_values_levels:
+      mm: millimeters
+      cm: centimeters
+      m: meters
+      "%": percentage
+  single value: Numeric value of the measurement of the variable in measured_var using the units in units. 
