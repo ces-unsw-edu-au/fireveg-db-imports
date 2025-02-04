@@ -1,0 +1,621 @@
+disp1:
+  label: Propagule dispersal mode
+  description: Propagule dispersal mode
+  life_stage: Seed
+  life_history_process: Dispersal
+  type: categorical
+  allowed_values_levels:
+    wind-hairs: Diaspores with wings large enough to significantly reduce terminal
+      velocity
+    wind-wing: Diaspores with hairs long and dense enough to significantly reduce
+      terminal velocity
+    wind-unspec.: Wind dispersal by unspecified mechanism
+    animal-ingestion: Diaspores with fleshy pericarp ingestable by vertebrates
+    animal-cohesion: Diaspores with external structures/substances promoting adhesion
+      to vertebrate fur/feathers by vertebrates
+    animal-unspec.: Animal dispersal by unspecified mechanism
+    ant: Diaspores with elaiosome (various structures including epicarp) harvested
+      by ants
+    water: Buoyancy in water (e.g. >24 hrs). Primarily relevant to species in riparian,
+      floodplain or littoral habitats (buoyancy/saltation in sheet flow interpreted
+      as 'passive' dispersal
+    ballistic: Diaspores with explosive release from parent plant
+    passive: Diaspores with no specialised structures for dispersal
+    other: Other
+  allowed_methods_levels:
+    Direct field observation or measure (unknown sample size): Estimates based on
+      data observed or measured in the field (unknown number of individuals observed).
+      Direct field observation or empirical measurement of dispersal events.
+    Direct observation (small sample): Estimates based on data observed or measured
+      in the field based on fewer than 10 individuals. Direct field observation or
+      empirical measurement of dispersal events.
+    Direct observation (large sample): Estimates based on data observed or measured
+      in the field based on 10 or more individuals observed). Direct field observation
+      or empirical measurement of dispersal events.
+    Inferred from plant / organ / growth stage morphology: Inference based on relevant
+      morphological structures or traits. Inferred qualitatively from morphological
+      features in definitions of dispersal categories.
+    Manipulative experiment: Manipulative experiment. Based on experimantal exposure
+      to one or more dispersal vectors.
+    Unspecified methods: Methods unclear or undocumented.
+germ1:
+  label: Seedbank Type
+  description: null
+  life_stage: Seed
+  life_history_process: Germination
+  type: categorical
+  allowed_values_levels:
+    Canopy: Seeds withheld for >1yr within woody fruits in the plant canopy that release
+      seeds when scorched
+    Soil-persistent: Seeds released at maturity with a fraction (min 10%) remaining
+      viable in the soil for >1yr
+    Transient: Seeds released from woody or fleshy fruits at maturity with a negligible
+      fraction (max 1%) remaining viable in the soil for >1yr
+    Non-canopy: Seedbanks uncertain but not canopy type (either Soil-persistent or
+      Transient seedbank type)
+germ10:
+  label: Postfire residual seedbank
+  description: null
+  life_stage: Seed
+  life_history_process: Germination
+  type: categorical
+germ2:
+  label: Heat-pulse-cued germination
+  description: Germination response to heat pulse
+  life_stage: Seed
+  life_history_process: Germination
+  type: categorical
+germ3:
+  label: Smoke-cued germination
+  description: Germination response to smoke treatments
+  life_stage: Seed
+  life_history_process: Germination
+  type: categorical
+germ4:
+  label: Heat shock-smoke interactive germination cue
+  description: Germination response to combined heat and smoke treatments
+  life_stage: Seed
+  life_history_process: Germination
+  type: categorical
+germ5:
+  label: H50
+  description: Minimum temperature of heat pulse (exposure time up to 10 mins) producing
+    50% germination from viable fraction
+  life_stage: Seed
+  life_history_process: Germination
+  type: numerical
+germ6:
+  label: H-max
+  description: Temperature of heat pulse (exposure time up to 10 mins) producing maximum
+    % germination from dormant fraction
+  life_stage: Seed
+  life_history_process: Germination
+  type: numerical
+germ7:
+  label: H-lethal
+  description: Minimum temperature of heat pulse (exposure time up to 10 mins) at
+    which all seeds are killed
+  life_stage: Seed
+  life_history_process: Germination
+  type: numerical
+germ8:
+  label: Seed dormancy type
+  description: null
+  life_stage: Seed
+  life_history_process: Germination
+  type: categorical
+  allowed_values_levels:
+    PY: Physical dormancy (PY) is caused by a water-impermeable seed coat. Typically
+      overcome by scarification, fire-related heat pulse and/or high temperatures
+    PD: Physiological dormancy (PD) is caused by a chemical or physiological block
+      within the seed, driven by the balance between the growth inhibiting and growth
+      promoting hormones ABA and GA. It is overcome by cold or warm stratification
+      or dry after-ripening, environmental conditions which are experienced after
+      seed dispersal over the seasons. Often related to having seasonal germination
+      cues
+    PY-PD: A combination of physical dormancy (PY) and physiological dormancy (PD)
+      (see definitions above). Both forms of dormancy must be overcome for germination
+      to result.
+    MPD: A combination of morphological dormancy (MD), caused by an underdeveloped
+      embryo, and physiological dormancy (PD) (see definition above). Both forms of
+      dormancy must be overcome for germination to result, with both dormancy types
+      potentially broken down under the same environmental conditions.
+    MD: Morphological dormancy (MD) is caused by an underdeveloped embryo in seeds
+      that do not have physiological dormancy (PD). Embryos need to grow to the full
+      length of the seed before germination can occur, so this embryo growth period
+      delays germination.
+    ND: Non-dormant (ND) species are able to germinate upon release, across a wide
+      range of environmental conditions.
+  allowed_methods_levels:
+    Direct field observation or measure (unknown sample size): Estimates based on
+      data observed or measured in the field (unknown number of individuals observed).
+      Direct observational evidence of physical, physiological or morphological control
+      on dormancy.
+    Direct observation (small sample): Estimates based on data observed or measured
+      in the field based on fewer than 10 individuals. Direct observational evidence
+      of physical, physiological or morphological control on dormancy.
+    Direct observation (large sample): Estimates based on data observed or measured
+      in the field based on 10 or more individuals observed). Direct observational
+      evidence of physical, physiological or morphological control on dormancy.
+    Inferred from plant / organ / growth stage morphology: Inference based on relevant
+      morphological structures or traits. Inferred from visible features of seeds
+      (e.g. hard coats) or fruits (e.g. hard endocarp).
+    Inferred from related taxa: Assigned to same category as congeners or confamilials
+      that have similar visible features, pending direct evidence. Assigned to same
+      category as congeners or confamilials that have similar visible features, pending
+      direct evidence.
+    Unspecified methods: Methods unclear or undocumented.
+germ9:
+  label: TBA
+  description: TBA
+  life_stage: Seed
+  life_history_process: Germination
+  type: TBA
+grow1:
+  label: Age to develop regenerative/resistance organs
+  description: The time taken to develop organs or tissues enabling at least 50% of
+    cohort survival when fully scorched in a fire
+  life_stage: Standing plant
+  life_history_process: Growth
+  type: numerical
+  units: years
+  allowed_values_min: 0.1
+  allowed_methods_levels:
+    Direct field observation or measure (unknown sample size): Estimates based on
+      data observed or measured in the field (unknown number of individuals observed).
+      At least 50% survival calculated from field counts of live and killed individuals
+      of known age(s) after a fire event that resulted in complete scorch
+    Direct observation (small sample): Estimates based on data observed or measured
+      in the field based on fewer than 10 individuals. Time series measurements of
+      growth stage variables in relation to cohort age
+    Direct observation (large sample): Estimates based on data observed or measured
+      in the field based on 10 or more individuals observed). Time series measurements
+      of growth stage variables in relation to cohort age
+    Estimated by extrapolation from observed values: Estimated by extrapolation from
+      (time series) of observed values. Time series of organ/issue development requiring
+      extrapolation to estimate an age at which survival would be at least 50%
+    Trait evidence, but start date uncertain: Evidence of trait expression, but age
+      of first expression uncertain. Single temporal observation of >50% survival
+      but uncertain if survival would be >50% if sampled plants were younger
+    Inferred from plant / organ / growth stage morphology: Inference based on relevant
+      morphological structures or traits. Age of resistance inferred from one or few
+      opportunitistic observations of organ dimensions (e.g. lignotuber diameter,
+      bark thickness at known age)
+    Inferred from related taxa: Assigned to same category as congeners or confamilials
+      that have similar visible features, pending direct evidence. Based on attainment
+      of mature form for congeneric species with similar growth forms and habitats
+    Manipulative experiment: Manipulative experiment. Experimental heating applied
+      to individuals of known age(s)
+    No evidence of trait expression by specified age: No evidence of trait expression
+      by specified age. Reproductive/regenerative structures not yet observed since
+      last fire
+    Unspecified methods: Methods unclear or undocumented.
+grow2:
+  label: Age to reach maximum growth stage
+  description: Age of a cohort at which 50% of individuals reach their maximum growth
+    stage
+  life_stage: Standing plant
+  life_history_process: Growth
+  type: TO DO
+  allowed_methods_levels:
+    Direct field observation or measure (unknown sample size): Estimates based on
+      data observed or measured in the field (unknown number of individuals observed).
+      Time series measurements of growth stage variables in relation to cohort age
+    Direct observation (small sample): Estimates based on data observed or measured
+      in the field based on fewer than 10 individuals. Time series measurements of
+      growth stage variables in relation to cohort age
+    Direct observation (large sample): Estimates based on data observed or measured
+      in the field based on 10 or more individuals observed). Time series measurements
+      of growth stage variables in relation to cohort age
+    Estimated by extrapolation from observed values: Estimated by extrapolation from
+      (time series) of observed values. Extrapolation from incomplete time series
+      of growth stage variables in relation to cohort age
+    Trait evidence, but start date uncertain: Evidence of trait expression, but age
+      of first expression uncertain. Single temporal observation of >50% survival
+      but uncertain if survival would be >50% if sampled plants were younger
+    Inferred from plant / organ / growth stage morphology: Inference based on relevant
+      morphological structures or traits. inferred from growth stage morphology without
+      formal time series data (document assumptions) - Inferred qualitatively from
+      one or few opportunistic observations of growth stage at known cohort ages (identify
+      any similar species if used in the inference)
+    Inferred from related taxa: Assigned to same category as congeners or confamilials
+      that have similar visible features, pending direct evidence. Based on attainment
+      of mature form for congeneric species with similar growth forms and habitats
+    No evidence of trait expression by specified age: No evidence of trait expression
+      by specified age. Reproductive/regenerative structures not yet observed since
+      last fire
+    Unspecified methods: Methods unclear or undocumented.
+grow2a:
+  label: Maximum growth stage
+  description: Taxon-specific definition of maximum growth stage (e.g. specify a minimum
+    plant height, canopy diam. organ development (e.g. rhizome), dbh, presence of
+    hollows, etc.)
+  life_stage: Standing plant
+  life_history_process: Growth
+  type: text
+grow3:
+  label: Maximum bark thickness
+  description: Maximum bark thickness [mm]
+  life_stage: Standing plant
+  life_history_process: Growth
+  type: numeric
+grow4:
+  label: Maximum plant height
+  description: Maximum plant height [m]
+  life_stage: Standing plant
+  life_history_process: Growth
+  type: numeric
+rect1:
+  label: Postfire seedling recruitment
+  description: The observed incidence of post-fire (within first 5 years after fire)
+    seedling recruitment
+  life_stage: Seedling
+  life_history_process: Recruitment
+  type: categorical
+rect2:
+  label: Establishment pattern
+  description: The temporal pattern of seedling or clonal establishment through the
+    fire cycle
+  life_stage: Seedling
+  life_history_process: Recruitment
+  type: categorical
+  allowed_values_levels:
+    Intolerant: I- intolerant of conditions in established communities (i.e. unburnt
+      for some years) and largely restricted to early post-fire years (open conditions,
+      notionally within 5 yrs of previous fire). See Noble & Slatyer (1980, Vegetatio)
+    Intolerant-Tolerant: I/T- intolerant or tolerant of conditions in established
+      communities (i.e. unburnt for some years) , variable or uncertain. See Noble
+      & Slatyer (1980, Vegetatio)
+    Tolerant: T- tolerant of conditions through the fire cycle (i.e. new recruits
+      observed in both burnt and unburnt sites). See Noble & Slatyer (1980, Vegetatio)
+    Tolerant-Requiring: T/R- tolerant or requiring of conditions in established communities,
+      uncertain or variable. See Noble & Slatyer (1980, Vegetatio)
+    Requiring: R- requiring of of conditions in established communities (i.e. new
+      recruits only observed at sites unburnt for some years). See Noble & Slatyer
+      (1980, Vegetatio)
+    Unknown: No data
+rect3:
+  label: Seedling emergence phenology
+  description: 'The  month(s) of seedling emergence event. Enter either: i) square
+    brackets with comma-separated first month, peak month and last month of seedling
+    emergence event; or ii) single month of observed emergence if first, peak & last
+    unknown)'
+  life_stage: Seedling
+  life_history_process: Recruitment
+  type: categorical
+  allowed_methods_levels:
+    Direct field observation or measure (unknown sample size): Estimates based on
+      data observed or measured in the field (unknown number of individuals observed).
+      Based on response in time series spanning the seedling emergence event(s).
+    Direct observation (small sample): Estimates based on data observed or measured
+      in the field based on fewer than 10 individuals. Based on response in time series
+      spanning the seedling emergence event(s).
+    Direct observation (large sample): Estimates based on data observed or measured
+      in the field based on 10 or more individuals observed). Based on response in
+      time series spanning the seedling emergence event(s).
+    Estimated by extrapolation from observed values: Estimated by extrapolation from
+      (time series) of observed values. Based on one or few observations of seedling
+      emergence that do not span the full duration of the emergence event.
+    Trait evidence, but start date uncertain: Evidence of trait expression, but age
+      of first expression uncertain. Single temporal observation of seedlings but
+      the month that they emerged is uncertain.
+    Inferred from partial data: Inferred from incomplete or indirect information.
+      Inferred from indirect information before or after the emergence event.
+    Unspecified methods: Methods unclear or undocumented.
+rect3a:
+  label: Seedling emergence phenology - rainfall context
+  description: Occurrence of significant dry spell (>3 months with <10 mm in any week)
+    during the period between fire and seedling emergence
+  life_stage: Seedling
+  life_history_process: Recruitment
+  type: categorical
+repr1:
+  label: Flowering time
+  description: Earliest (1st decile of individuals) and latest (10th decile of individuals)
+    month flowering was observed
+  life_stage: Standing plant
+  life_history_process: Reproduction
+  type: TBA
+repr2:
+  label: Post-fire flowering response
+  description: null
+  life_stage: Standing plant
+  life_history_process: Reproduction
+  type: categorical
+  allowed_values_levels:
+    Exclusive: Flowering occurs exclusively in the first 5 years after fire (excluding
+      outliers, e.g roadsides)
+    Facultative: Flowering occurs most prolifically in the first 5 years after fire
+    Negligible: Flowering similar or variable throughout the fire cycle
+    Unknown: No data
+repr3:
+  label: Age at first flower production (from seed)
+  description: The time taken for first individual in a recruitment cohort to produce
+    their first reproductive organs (e.g. flowers, sporophylls)
+  life_stage: Standing plant
+  life_history_process: Reproduction
+  type: numerical
+  units: years
+  allowed_values_min: 0.1
+  allowed_methods_levels:
+    Direct field observation or measure (unknown sample size): Estimates based on
+      data observed or measured in the field (unknown number of individuals observed).
+      Time series measurements of flowering in relation to cohort age
+    Direct observation (small sample): Estimates based on data observed or measured
+      in the field based on fewer than 10 individuals. Time series measurements of
+      flowering in relation to cohort age
+    Direct observation (large sample): Estimates based on data observed or measured
+      in the field based on 10 or more individuals observed). Time series measurements
+      of flowering in relation to cohort age
+    Trait evidence, but start date uncertain: Evidence of trait expression, but age
+      of first expression uncertain. Reproductive structures observed, but uncertain
+      whether they were also produced earlier during post-fire regeneration
+    No evidence of trait expression by specified age: No evidence of trait expression
+      by specified age. Reproductive/regenerative structures not yet observed since
+      last fire
+    Unspecified methods: Methods unclear or undocumented.
+repr3a:
+  label: Time to first postfire reproduction (from resprouts)
+  description: The time taken after fire for first reproductive organs (e.g. flowers,
+    sporophylls) to be produced in a population of resprouting individuals
+  life_stage: Standing plant
+  life_history_process: Reproduction
+  type: numerical
+  units: years
+  allowed_values_min: 0.1
+  allowed_methods_levels:
+    Direct field observation or measure (unknown sample size): Estimates based on
+      data observed or measured in the field (unknown number of individuals observed).
+      Time series measurements of flowering in relation to cohort age
+    Direct observation (small sample): Estimates based on data observed or measured
+      in the field based on fewer than 10 individuals. Time series measurements of
+      flowering in relation to cohort age
+    Direct observation (large sample): Estimates based on data observed or measured
+      in the field based on 10 or more individuals observed). Time series measurements
+      of flowering in relation to cohort age
+    Trait evidence, but start date uncertain: Evidence of trait expression, but age
+      of first expression uncertain. Reproductive structures observed, but uncertain
+      whether they were also produced earlier during post-fire regeneration
+    No evidence of trait expression by specified age: No evidence of trait expression
+      by specified age. Reproductive/regenerative structures not yet observed since
+      last fire
+    Unspecified methods: Methods unclear or undocumented.
+repr4:
+  label: Maturation age
+  description: The time taken for 50% of individuals in a cohort [even aged recruits]
+    to produce their first viable seed
+  life_stage: Standing plant
+  life_history_process: Reproduction
+  type: numerical
+  units: years
+  allowed_values_min: 0.1
+  allowed_methods_levels:
+    Direct field observation or measure (unknown sample size): Estimates based on
+      data observed or measured in the field (unknown number of individuals observed).
+      Time series data for seedbank accumulation.
+    Direct observation (small sample): Estimates based on data observed or measured
+      in the field based on fewer than 10 individuals. Time series measurements of
+      flowering in relation to cohort age.
+    Direct observation (large sample): Estimates based on data observed or measured
+      in the field based on 10 or more individuals observed). Time series measurements
+      of flowering in relation to cohort age.
+    Estimated by extrapolation from observed values: Estimated by extrapolation from
+      (time series) of observed values. Time series of flowering observations requiring
+      extrapolation to estimate an age at which survival would be at least 50%.
+    Trait evidence, but start date uncertain: Evidence of trait expression, but age
+      of first expression uncertain. reproductive structures observed, but uncertain
+      whether they were also produced earlier during post-fire regeneration.
+    Inferred form other trait: Inferred from values of a different, but related trait.
+      Inferred from first flower production - Derived from some function of Age at
+      first flowering (e.g. 2x, 3x). Justification of assumption required.
+    Inferred from partial data: Inferred from incomplete or indirect information.
+      None.
+    No evidence of trait expression by specified age: No evidence of trait expression
+      by specified age. reproductive/regenerative structures not yet observed since
+      last fire.
+    Unspecified methods: Methods unclear or undocumented.
+repr5:
+  label: Age at maximum seed production
+  description: Age of a cohort at which seed production reaches a peak, before declining
+    with age
+  life_stage: Standing plant
+  life_history_process: Reproduction
+  type: numeric
+repr6:
+  label: Age of maximum seed bank size
+  description: Age of a cohort at which the accumulated seedbank reaches a peak (usually
+    derived from models of seedbank dynamics)
+  life_stage: Standing plant
+  life_history_process: Reproduction
+  type: numeric
+repr7a:
+  label: Resprout flowering response to summer fire
+  description: Proportion of surviving resprouting individuals that produce a seed/spore
+    crop within the first five years after a summer (Dec-Feb sth hemisphere) fire
+  life_stage: Standing plant
+  life_history_process: Reproduction
+  type: TBA
+repr7b:
+  label: Flowering response to autumn fire
+  description: Proportion of surviving resprouting individuals that produce a seed/spore
+    crop within the first five years after an autumn (Mar-May sth hemisphere) fire
+  life_stage: Standing plant
+  life_history_process: Reproduction
+  type: TBA
+repr7c:
+  label: Flowering response to winter fire
+  description: Proportion of surviving resprouting individuals that produce a seed/spore
+    crop within the first five years after a winter (Jun-Aug sth hemisphere) fire
+  life_stage: Standing plant
+  life_history_process: Reproduction
+  type: TBA
+repr7d:
+  label: Flowering response to spring fire
+  description: Proportion of surviving resprouting individuals that produce a seed/spore
+    crop within the first five years after a winter (Jun-Aug sth hemisphere) fire
+  life_stage: Standing plant
+  life_history_process: Reproduction
+  type: TBA
+surv1:
+  label: Resprouting - full canopy scorch
+  description: Ordinal categories of survival and resprouting proportions for plants
+    subjected to 100% canopy scorch
+  life_stage: Standing plant
+  life_history_process: Survival
+  type: categorical
+  allowed_values_levels:
+    None: < 5 % individuals in a population resprout after 100% canopy scorch
+    Few: '> 5 and < 30 % individuals in a population resprout after 100% canopy scorch'
+    Half: '> 30 and < 70 % individuals in a population resprout after 100% canopy
+      scorch'
+    Most: '> 70 and < 90 % individuals in a population resprout after 100% canopy
+      scorch'
+    All: '> 90 % individuals in a population resprout after 100% canopy scorch'
+    Unknown: No data
+  units: years
+  allowed_values_min: 0.1
+  allowed_methods_levels:
+    Direct field observation or measure (unknown sample size): Estimates based on
+      data observed or measured in the field (unknown number of individuals observed).
+      Survival estimates based on counts of individuals tagged pre-fire or counts
+      of resprouters and dead remains postfire
+    Direct observation (small sample): Estimates based on data observed or measured
+      in the field based on fewer than 10 individuals. Survival estimates based on
+      counts of individuals tagged pre-fire or counts of resprouters and dead remains
+      postfire
+    Direct observation (large sample): Estimates based on data observed or measured
+      in the field based on 10 or more individuals observed). Survival estimates based
+      on counts of individuals tagged pre-fire or counts of resprouters and dead remains
+      postfire
+    Estimated by extrapolation from observed values: Estimated by extrapolation from
+      (time series) of observed values. High mortality from 100% scorch may be inferred
+      if mortality is high from partial scorch
+    Inferred from plant / organ / growth stage morphology: 'Inference based on relevant
+      morphological structures or traits. Inference based on structure of protective
+      and regenerative organs '
+    Inferred from related taxa: Assigned to same category as congeners or confamilials
+      that have similar visible features, pending direct evidence. Based on congeneric
+      species with similar protective/recovery organs and habitats
+    Manipulative experiment: Manipulative experiment. Individuals sampled before and
+      after fire treatment causing 100% scorch
+    Qualitative estimate: Guestimate from visual assessment of post-fire wild population.
+      Guestimate from visual assessment of post-fire wild population
+    Unspecified methods: Methods unclear or undocumented.
+surv2:
+  label: Basal scorch response (scorch height < 50% of plant height)
+  description: Non-ordinal categories of survival response for plants subjected to
+    basal scorch
+  life_stage: Standing plant
+  life_history_process: Survival
+  type: TO DO
+  allowed_methods_levels:
+    Direct field observation or measure (unknown sample size): Estimates based on
+      data observed or measured in the field (unknown number of individuals observed).
+      Survival response based on counts of individuals tagged pre-fire or counts of
+      resprouters and dead remains postfire
+    Direct observation (small sample): Estimates based on data observed or measured
+      in the field based on fewer than 10 individuals. Survival response based on
+      counts of individuals tagged pre-fire or counts of resprouters and dead remains
+      postfire
+    Direct observation (large sample): Estimates based on data observed or measured
+      in the field based on 10 or more individuals observed). Survival response based
+      on counts of individuals tagged pre-fire or counts of resprouters and dead remains
+      postfire
+    Trait evidence, but start date uncertain: Evidence of trait expression, but age
+      of first expression uncertain. None
+    Inferred from plant / organ / growth stage morphology: Inference based on relevant
+      morphological structures or traits. Inferred from plant morphology (e.g. bark
+      thickness) or other means (specify)
+    Inferred from related taxa: Assigned to same category as congeners or confamilials
+      that have similar visible features, pending direct evidence. Based on congeneric
+      species with similar protective/recovery organs and habitats
+    Manipulative experiment: Manipulative experiment. Individuals sampled before and
+      after fire treatment causing basal scorch
+    Qualitative estimate: Guestimate from visual assessment of post-fire wild population.
+      Guestimate from visual assessment of post-fire wild population
+    Unspecified methods: Methods unclear or undocumented.
+surv3:
+  label: Survival - basal scorch
+  description: Ordinal categories of survival and resprouting proportions for plants
+    subjected to LESS THAN 100% canopy scorch
+  life_stage: Standing plant
+  life_history_process: Survival
+  type: TO DO
+  allowed_methods_levels:
+    Direct field observation or measure (unknown sample size): Estimates based on
+      data observed or measured in the field (unknown number of individuals observed).
+      Survival estimates based on counts of individuals tagged pre-fire or counts
+      of resprouters and dead remains postfire
+    Direct observation (small sample): Estimates based on data observed or measured
+      in the field based on fewer than 10 individuals. Survival estimates based on
+      counts of individuals tagged pre-fire or counts of resprouters and dead remains
+      postfire
+    Direct observation (large sample): Estimates based on data observed or measured
+      in the field based on 10 or more individuals observed). Survival estimates based
+      on counts of individuals tagged pre-fire or counts of resprouters and dead remains
+      postfire
+    Trait evidence, but start date uncertain: Evidence of trait expression, but age
+      of first expression uncertain. None
+    Inferred from plant / organ / growth stage morphology: Inference based on relevant
+      morphological structures or traits. Inference based on structure of protective
+      and regenerative organs with reference to resprouting responses of species with
+      similar organs
+    Inferred from related taxa: Assigned to same category as congeners or confamilials
+      that have similar visible features, pending direct evidence. Based on congeneric
+      species with similar protective/recovery organs and habitats
+    Manipulative experiment: Manipulative experiment. Individuals sampled before and
+      after fire treatment causing <100% scorch
+    Qualitative estimate: Guestimate from visual assessment of post-fire wild population.
+      Guestimate from visual assessment of post-fire wild population
+    Unspecified methods: Methods unclear or undocumented.
+surv4:
+  label: Regenerative Organ
+  description: null
+  life_stage: Standing plant
+  life_history_process: Survival
+  type: categorical
+  allowed_values_levels:
+    Epicormic: Resprouting from epicormic meristematic tissues or buds beneath bark
+      on woody aerial stems
+    Apical: Resprouting from active shoots protected by crowded leaf bases on woody
+      stems
+    Lignotuber: Resprouting from meristematic tissues or buds on lignotubers (swollen
+      woody organ) at or just below the soil surface
+    Basal: Resprouting from meristematic tissues or buds at the base of woody stems
+      at or just below the soil surface
+    Tuber: Resprouting from non-woody nodular subsoil organs (bulbs, corms, tubers,
+      taproots) with active shoots or dormant buds
+    Tussock: Shoots protected and resprouting within tightly clustered tillers and
+      resprouting  without significant lateral spread
+    Long rhizome or root sucker: Resprouting from buried woody or non-woody horizontal
+      organs capable of lateral spread, typically >0.5m. Includes root suckers.
+    Short rhizome: Resprouting from buried woody or non-woody horizontal organs, but
+      not capable of significant lateral spread, typically <0.5m.
+    Stolon: Resprouting from non-woody horizontal organs on or just below the soil
+      surface
+    None: No vegetative recovery - killed by fire
+surv5:
+  label: Standing plant longevity (Max)
+  description: Age at which 50% of individuals in a cohort (excluding outliers) have
+    died from senescence
+  life_stage: Standing plant
+  life_history_process: Survival
+  type: numerical
+  units: years
+  allowed_values_min: 0.1
+surv6:
+  label: Seedbank half-life
+  description: Age at which 50% of a seed cohort in an in situ seedbank have decayed
+    or become inviable
+  life_stage: Seed
+  life_history_process: Survival
+  type: numerical
+  units: years
+  allowed_values_min: 0.1
+surv7:
+  label: Seed longevity
+  description: Age at which all seeds in a cohort (excluding outliers, e.g. 95th percentile)
+    have decayed or become inviable
+  life_stage: Seed
+  life_history_process: Survival
+  type: numerical
