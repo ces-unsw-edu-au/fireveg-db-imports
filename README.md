@@ -18,7 +18,7 @@ This work has been supported by:
 
 ### Import data into the database
 
-:dart: [This repository](https://github.com/ces-unsw-edu-au/fireveg-db-imports) contains several [Jupyter notebooks](https://jupyter.org/try) with code and instruction to perform several tasks in the database.
+:dart: [This repository](https://github.com/ces-unsw-edu-au/fireveg-db-imports) contains several [Jupyter notebooks](https://jupyter.org/try) with code and instruction to populate and manage the database.
 
 Visualisation of the notebooks is possible in GitHub, or in the [Jupyter Notebook Viewer](https://nbviewer.org/).
 
@@ -26,7 +26,7 @@ Instructions to use this repository are in the [Instructions and workflow Notebo
 
 This repository is part of the OSF project component:
 
-> Ferrer-Paris, J. R. (2024, August 16). Code for populating and managing the fireveg database. Retrieved from osf.io/znuge
+> Ferrer-Paris, J. R. (2024, August 16). Code for populating and managing the fireveg database. Retrieved from [osf.io/znuge]()
 
 
 ### Project overview
